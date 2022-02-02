@@ -6,8 +6,10 @@
       </h1>
       <div class="form-control">
         <div class="flex space-x-2">
-          <input type="text" placeholder="Search" class="w-full input input-primary input-bordered">
-          <button class="btn btn-primary">go</button>
+          <%= form_for @user do |f| %>
+            <%= f.text_field :email, class: "w-full input input-primary input-bordered", placeholder: "Enter your email" %>
+            <%= f.submit "Go", class: 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
     </div>
