@@ -1,9 +1,12 @@
-<div class="hero min-h-screen bg-base-200">
-  <div class="text-center hero-content">
-    <div class="max-w-md">
-      <h1 class="mb-8 text-5xl font-bold">
+<div class="container bg-base-200" style="min-width: 100vw;min-height: 100vh;">
+<div class="mx-auto flex flex-col justify-between border-2 border-rose-500 ">
+  <div class="text-center">
+      <div class="mb-8">
+      <h1 class="text-5xl font-bold">
         BookWork
       </h1>
+        <%= link_to 'Non affilié à La Permanence', 'https://www.la-permanence.com', class: 'link link-hover' %>
+      </div>
       <%= form_for @user, remote: true do |f| %>
       <div class="form-control mb-8">
             <%= f.text_field :email, class: "w-full input input-primary input-bordered", placeholder: "Enter your email" %>
@@ -74,6 +77,15 @@
         </div>
         <%= f.submit "Envoyer", class: 'btn btn-primary' %>
       <% end %>
-    </div>
+      <div class="card text-center shadow-2xl lg:card-side bg-accent text-accent-content mt-8">
+        <div class="card-body">
+          <p>Réserver votre salle directement sur le site du CoWorking.</p>
+          <div class="justify-center card-actions">
+            <%= link_to 'Réserver une salle', 'https://www.la-permanence.com/services/meeting-rooms/bookings', class: 'btn btn-accent' %>
+            <%= link_to "Plus d'info", 'https://www.la-permanence.com/work-spaces', class: 'btn btn-accent' %>
+          </div>
+        </div>
+      </div>
   </div>
+</div>
 </div>
