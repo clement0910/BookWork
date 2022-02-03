@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
-<h1>Welcome to example.com</h1>
-<p>
-  You have successfully signed up to example.com,
-  your email is: <%= @user.email %>.<br>
-</p>
-<p>
-  To login to the site, just follow this link: <%= @url %>.
-</p>
-<p>Thanks for joining and have a great day!</p>
-</body>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+  <body>
+    <h1>Inscription à BookWork effectué.</h1>
+    <p>
+      Vous allez recevoir des mails quotidien du Lundi Au Vendredi à 9h ainsi que des emails à chaque réservation.
+      Email souscrit: <%= @user.email %>
+    </p>
+    <p>
+      Demande faite le <%= @user.created_at %>
+    </p>
+    <p>Merci pour la souscription au service BookWork.</p>
+  </body>
+  <%= link_to "Unsubscribe", @unsubscribe_url %>
 </html>
