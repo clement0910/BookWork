@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_100534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "campus"
-    t.boolean "subscribed"
+    t.boolean "subscribed", default: true
     t.boolean "collect_data"
     t.boolean "accept_cgv"
   end
