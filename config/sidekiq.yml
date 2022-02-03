@@ -1,0 +1,4 @@
+:schedule:
+  check_new_booking:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: CheckNewBooking
