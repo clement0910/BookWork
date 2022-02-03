@@ -1,17 +1,63 @@
 <div class="hero min-h-screen bg-base-200">
   <div class="text-center hero-content">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">
+      <h1 class="mb-8 text-5xl font-bold">
         BookWork
       </h1>
-      <div class="form-control">
-        <div class="flex space-x-2">
-          <%= form_for @user do |f| %>
+      <%= form_for @user do |f| %>
+      <div class="form-control mb-8">
             <%= f.text_field :email, class: "w-full input input-primary input-bordered", placeholder: "Enter your email" %>
-            <%= f.submit "Go", class: 'btn btn-primary' %>
+      </div>
+        <div class="mb-2">
+          Sélectionner votre campus
+          <div class="dropdown dropdown-right dropdown-end dropdown-hover">
+            <div tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline w-5 h-5 stroke-current">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div tabindex="0" class="shadow card compact dropdown-content bg-base-100 rounded-box w-52">
+              <div class="card-body">
+                <p>Les espaces de CoWorking de Paris ne sont pas encore disponible.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex space-x-2 mb-8 justify-center">
+          <div class="form-control">
+            <%= f.label :campus, class: 'cursor-pointer label mx-5' do %>
+            <span class="label-text mr-3">Lyon</span>
+              <%= f.radio_button :campus,  '', checked: true, class: 'radio' %>
+              <% end %>
+          </label>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label mx-5">
+              <span class="label-text mr-3">Moulin</span>
+              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+            </label>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label mx-5">
+              <span class="label-text mr-3">Alesia</span>
+              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+            </label>
+          </div>
+          <div class="form-control">
+            <label class="cursor-pointer label mx-5">
+              <span class="label-text mr-3">Marcadet</span>
+              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+            </label>
+          </div>
+        </div>
+        <div class="form-control mb-5">
+          <%= f.label :subscribed, class: 'cursor-pointer label' do %>
+            <span class="label-text">J'accepte les CGV</span>
+            <%= f.check_box :subscribed, class: "checkbox checkbox-primary"%>
           <% end %>
         </div>
-      </div>
+        <%= f.submit "Envoyer", class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
