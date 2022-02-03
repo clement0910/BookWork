@@ -1,91 +1,125 @@
-<div class="container bg-base-200" style="min-width: 100vw;min-height: 100vh;">
-<div class="mx-auto flex flex-col justify-between border-2 border-rose-500 ">
-  <div class="text-center">
+<div class="container bg-base-200 min-w-full min-h-full">
+  <%= link_to 'https://github.com/clement0910/bookwork' do %>
+    <%= image_tag 'https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white', style: "position: fixed; top: 0; right: 0;"%>
+  <% end %>
+  <div class=" w-6/12 mx-auto flex flex-col justify-between py-10">
+    <div class="text-center">
+        <div class="mb-8">
+        <h1 class="text-5xl font-bold">
+          BookWork
+        </h1>
+          <%= link_to 'Non affilié à La Permanence', 'https://www.la-permanence.com', class: 'link link-hover' %>
+        </div>
       <div class="mb-8">
-      <h1 class="text-5xl font-bold">
-        BookWork
-      </h1>
-        <%= link_to 'Non affilié à La Permanence', 'https://www.la-permanence.com', class: 'link link-hover' %>
+        <h2 class="mb-1">Soyez averti de l’occupation des salles de réunion </h2>
+        <p>- Un mail quotidien récapitulant le planning des salles à 9h00 -</p>
+        <p>- Un mail envoyé à chaque nouvelle réservation -</p>
+        <p></p>
       </div>
-      <%= form_for @user, remote: true do |f| %>
-      <div class="form-control mb-8">
-            <%= f.text_field :email, class: "w-full input input-primary input-bordered", placeholder: "Enter your email" %>
-      </div>
-        <div class="mb-2">
-          Sélectionner votre campus
-          <div class="dropdown dropdown-right dropdown-end dropdown-hover">
-            <div tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline w-5 h-5 stroke-current">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div tabindex="0" class="shadow card compact dropdown-content bg-base-100 rounded-box w-52">
-              <div class="card-body">
-                <p>Les espaces de CoWorking de Paris ne sont pas encore disponible.</p>
+        <%= form_for @user, remote: true do |f| %>
+        <div class="mb-8">
+              <%= f.text_field :email, class: "w-full input input-primary input-bordered", placeholder: "Enter your email" %>
+        </div>
+          <div class="mb-2">
+            Sélectionner votre campus
+            <div class="dropdown dropdown-right dropdown-end dropdown-hover">
+              <div tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline w-5 h-5 stroke-current">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div tabindex="0" class="shadow card compact dropdown-content bg-base-100 rounded-box w-52">
+                <div class="card-body">
+                  <p>Les espaces de CoWorking de Paris ne sont pas encore disponible.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="flex space-x-2 mb-8 justify-center">
-          <div class="form-control">
-            <%= f.label :campus, class: 'cursor-pointer label mx-5' do %>
-            <span class="label-text mr-3">Lyon</span>
-              <%= f.radio_button :campus,  'Lyon', checked: true, class: 'radio' %>
-              <% end %>
-          </label>
-          </div>
-          <div class="form-control">
-            <label class="cursor-pointer label mx-5">
-              <span class="label-text mr-3">Moulin</span>
-              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+          <div class="flex space-x-2 mb-8 justify-center">
+            <div class="form-control">
+              <%= f.label :campus, class: 'cursor-pointer label mx-5' do %>
+              <span class="label-text mr-3">Lyon</span>
+                <%= f.radio_button :campus,  'Lyon', checked: true, class: 'radio' %>
+                <% end %>
             </label>
+            </div>
+            <div class="form-control">
+              <label class="cursor-pointer label mx-5">
+                <span class="label-text mr-3">Moulin</span>
+                <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+              </label>
+            </div>
+            <div class="form-control">
+              <label class="cursor-pointer label mx-5">
+                <span class="label-text mr-3">Alesia</span>
+                <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+              </label>
+            </div>
+            <div class="form-control">
+              <label class="cursor-pointer label mx-5">
+                <span class="label-text mr-3">Marcadet</span>
+                <input type="radio" name="opt" class="radio" value="" disabled="disabled">
+              </label>
+            </div>
           </div>
-          <div class="form-control">
-            <label class="cursor-pointer label mx-5">
-              <span class="label-text mr-3">Alesia</span>
-              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
-            </label>
-          </div>
-          <div class="form-control">
-            <label class="cursor-pointer label mx-5">
-              <span class="label-text mr-3">Marcadet</span>
-              <input type="radio" name="opt" class="radio" value="" disabled="disabled">
-            </label>
-          </div>
-        </div>
-        <div class="form-control mb-5">
-          <%= f.label :accept_cgv, class: 'cursor-pointer label' do %>
-            <span class="label-text">J'accepte les CGV</span>
-            <%= f.check_box :accept_cgv, class: "checkbox checkbox-primary"%>
-          <% end %>
-        </div>
-        <div class="alert alert-error mb-5 hidden" id="alert">
-          <div class="flex-1">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-            </svg>
-            <label id='label-alert'>Lorem ipsum dolor sit amet, consectetur adip!</label>
-          </div>
-        </div>
-        <div class="alert alert-success mb-5 hidden" id='alert-success'>
-          <div class="flex-1">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-            </svg>
-            <label>Vous avez bien souscrit au site, vous allez recevoir un mail de confirmation.</label>
+        <div class="flex justify-center">
+          <div class="form-control mb-5">
+            <%= f.label :accept_cgv, class: 'cursor-pointer label' do %>
+              <span class="label-text mr-3">J'accepte les Condition Génerales de Vente de vos informations personnels</span>
+              <%= f.check_box :accept_cgv, class: "checkbox checkbox-primary"%>
+            <% end %>
           </div>
         </div>
-        <%= f.submit "Envoyer", class: 'btn btn-primary' %>
-      <% end %>
-      <div class="card text-center shadow-2xl lg:card-side bg-accent text-accent-content mt-8">
-        <div class="card-body">
-          <p>Réserver votre salle directement sur le site du CoWorking.</p>
-          <div class="justify-center card-actions">
-            <%= link_to 'Réserver une salle', 'https://www.la-permanence.com/services/meeting-rooms/bookings', class: 'btn btn-accent' %>
-            <%= link_to "Plus d'info", 'https://www.la-permanence.com/work-spaces', class: 'btn btn-accent' %>
+          <div class="alert alert-error mb-5 hidden" id="alert">
+            <div class="flex-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+              </svg>
+              <label id='label-alert'>Lorem ipsum dolor sit amet, consectetur adip!</label>
+            </div>
           </div>
+          <div class="alert alert-success mb-5 hidden" id='alert-success'>
+            <div class="flex-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+              </svg>
+              <label>Vous avez bien souscrit au site, vous allez recevoir un mail de confirmation.</label>
+            </div>
+          </div>
+          <%= f.submit "Envoyer", class: 'btn btn-primary' %>
+        <% end %>
+        <div class="card text-center shadow-2xl lg:card-side glass text-accent-content mt-8">
+          <div class="card-body">
+            <p>Réserver votre salle directement sur le site du CoWorking.</p>
+            <div class="justify-center card-actions">
+              <%= link_to 'Réserver une salle', 'https://www.la-permanence.com/services/meeting-rooms/bookings', class: 'btn btn-accent' %>
+              <%= link_to "Plus d'info", 'https://www.la-permanence.com/work-spaces', class: 'btn btn-accent' %>
+            </div>
+          </div>
+        </div>
+      <div class="mt-8 flex flex-col">
+        <div class="m-2">
+          <div class="badge badge-primary">SOON</div>
+            Possibilité de choisir son espace de co-working
+          </div>
+        <div class="m-2">
+        <div class="badge badge-primary">SOON</div>
+          Choix des salles personnalisés
+        </div>
+        <div class="m-2">
+        <div class="badge badge-primary">SOON</div>
+          Envoi de message par un Bot Slack
         </div>
       </div>
+      <div class="m-8 flex justify-center items-center">
+        <div class="avatar mr-2">
+          <div class="rounded-btn w-14 h-14">
+            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHmYm-_HFzuUw/profile-displayphoto-shrink_200_200/0/1580514191971?e=1649289600&v=beta&t=elFNJnyR6KJPmnxWbH233Qr2trH6W1Wl3QWAbpIZ5l0">
+          </div>
+        </div>
+        <h3>Besoin d'un site ou d'une application ? Contactez moi par mail: csapt2001@gmail.com</h3>
+      </div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
