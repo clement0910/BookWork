@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<% if @bookings.empty?%>
+<h1> Pas de réservation aujourd'hui </h1>
+<% else %>
+ <h1><%= @bookings.count %> nouvelle réservation aujourd'hui</h1>
+<% end %>
+<p>
+
+</p>
+<p>
+</p>
+<p>BookWork.</p>
+</body>
+<%= link_to "Unsubscribe", @unsubscribe_url %>
+</html>
